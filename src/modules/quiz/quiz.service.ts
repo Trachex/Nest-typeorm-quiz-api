@@ -10,6 +10,10 @@ export class QuizService {
         @InjectRepository(Quiz) private quizRepo: Repository<Quiz>
     ) {}
 
+    async getQuizById(id: number): Promise<Quiz> {
+        return await this.quizRepo.findOne({ where: { id }, relations: { questions: true } });
+    }
+
     async createQuiz(quizData: CreateQuizDto): Promise<Quiz> {
         return await this.quizRepo.save(quizData);
     }

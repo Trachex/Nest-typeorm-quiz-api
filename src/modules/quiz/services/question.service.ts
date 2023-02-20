@@ -11,6 +11,10 @@ export class QuestionService {
         @InjectRepository(Question) private questionRepo: Repository<Question>
     ) {}
 
+    async getQuestionById(id: number): Promise<Question> {
+        return await this.questionRepo.findOne({ where: { id }, relations: { options: true } });
+    }
+
     async createQuestion(questionData: CreateQuestionDto, quiz: Quiz): Promise<Question> {
         const newQuestion = await this.questionRepo.save({
             question: questionData.question

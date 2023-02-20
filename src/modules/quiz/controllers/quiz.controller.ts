@@ -13,7 +13,7 @@ export class QuizController {
 
     @Post()
     @UsePipes(ValidationPipe)
-    async createQuiz(@Body() data: CreateQuizDto) {
-        return await this.quizService.createQuiz(data);
+    async createQuiz(@Body() quiz: CreateQuizDto) {
+        return await this.quizService.createQuiz(quiz);
     }
 }

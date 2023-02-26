@@ -1,7 +1,5 @@
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import { TypeOrmModuleAsyncOptions } from "@nestjs/typeorm";
-import * as dotenv from 'dotenv'
-dotenv.config()
 
 export const typeOrmConfigAsync: TypeOrmModuleAsyncOptions = {
     imports: [ConfigModule],

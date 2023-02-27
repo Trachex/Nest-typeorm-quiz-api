@@ -19,12 +19,10 @@ export class AuthService {
         return user;
     }
 
-    generateToken(user: any) {
-        return {
-            access_token: this.jwtService.sign({
-                name: user.name,
-                sub: user.id
-            })
-        }
+    generateToken(user: any): String {
+        return  this.jwtService.sign({
+            name: user.name,
+            sub: user.id
+        })
     }
 }
